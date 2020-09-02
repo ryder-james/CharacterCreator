@@ -1,9 +1,10 @@
 const mongoose = require(`mongoose`);
 
-const schema = require(`../modules/schema.js`)
+const hash = require(`../modules/hash.js`);
+const schema = require(`../modules/schema.js`);
 
 const secret = require(`../secret`);
-const character = require(`../character`)
+const character = require(`../character`);
 
 mongoose.Promise = global.Promise;
 
@@ -18,11 +19,74 @@ mdb.once(`open`, callback => {
 	
 });
 
-let User = mongoose.model(`User_Collection`, userSchema);
-
 exports.index = (req, res) => {
 	res.render(`index`, {
 		title: "Home"
+	});
+};
+
+exports.signin = (req, res) => {
+	schema.User.find({ username: req.body.username.toLowerCase() }, (err, users) => {
+		if (err) {
+			return console.err(err);
+		}
+
+		if(users[0] && hash.compareToHash(req.body.password, users[0].password)) {
+			req.session.user = {
+				isAuthenticated: true,
+				isAdmin: users[0].isAdmin,
+				name: users[0].displayName,
+				id: users[0].id
+			}
+
+			res.redirect(`/character`);
+		} else {
+			res.redirect(`/`);
+		}
+	});
+};
+
+
+exports.signup = (req, res) => {
+	res.render(`signup`, {
+		title: "Sign Up"
+	});
+};
+
+exports.signupUser = (req, res) => {
+	schema.User.find({ $or:[{email: req.body.email}, {username: req.body.username.toLowerCase()}] }, (err, users) => {
+		if (err) {
+			return console.error(err);
+		}
+
+		if (users[0]) {
+			res.redirect(`signup`);
+			return;
+		}
+
+		let newUser = new schema.User({
+			email: req.body.email,
+			username: req.body.username.toLowerCase(),
+			displayName: req.body.displayName,
+			password: hash.createHash(req.body.password),
+			isAdmin: false,
+			characters: []
+		});
+
+		newUser.save(err => {
+			if (err) {
+				return console.error(err);
+			}
+
+			req.session.user = {
+				isAuthenticated: true,
+				isAdmin: false,
+				name: newUser.displayName,
+				id: newUser.id
+			}
+
+			res.redirect(`/character`);
+		});
 	});
 };
 
