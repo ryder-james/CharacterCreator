@@ -1,6 +1,9 @@
 # Connection info
 secret.json
 
+# Paywall stuff
+themebooks/
+
 # Logs
 logs
 *.log
