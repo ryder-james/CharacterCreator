@@ -3,7 +3,9 @@ include tag-partial
 mixin theme(theme)
   div(class="theme-card mythos-card")
     div(class="theme-card-header")
-      p=theme.type
+      p
+        span(class="theme-card-type")=theme.type
+        span(class="theme-card-subtype")  - #{theme.subtype}
       i
     div(class="theme-card-title")
       p=theme.title

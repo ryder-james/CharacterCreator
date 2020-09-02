@@ -21,7 +21,8 @@
 	"nemeses": [],
 	"crew-theme": {
 		"title": "The Crime Club",
-		"type": "Crew Theme - Logos",
+		"type": "Crew Theme",
+		"subtype": "Logos",
 		"attention": 0,
 		"fade-crack": 0,
 		"identity-mythos": "The Oracle Guides Us to the Truth",
@@ -66,7 +67,8 @@
 	"themes": [
 		{
 			"title": "Handy Bullwhip",
-			"type": "Relic - Mythos",
+			"type": "Relic",
+			"subtype": "Mythos",
 			"attention": 0,
 			"fade-crack": 0,
 			"identity-mythos": "What Am I Reaching For?",
@@ -127,7 +129,8 @@
 		},
 		{
 			"title": "The Luck of the Draw",
-			"type": "Bastion - Mythos",
+			"type": "Bastion",
+			"subtype": "Mythos",
 			"attention": 0,
 			"fade-crack": 0,
 			"identity-mythos": "What Could Possibly Go Wrong?",
@@ -172,7 +175,8 @@
 		},
 		{
 			"title": "Stanforth University",
-			"type": "Defining Relationship - Logos",
+			"type": "Defining Relationship",
+			"subtype": "Logos",
 			"attention": 0,
 			"fade-crack": 0,
 			"identity-mythos": "The University Is My One True Home",
@@ -217,7 +221,8 @@
 		},
 		{
 			"title": "Professor of Physics",
-			"type": "Mission - Logos",
+			"type": "Mission",
+			"subtype": "Logos",
 			"attention": 0,
 			"fade-crack": 0,
 			"identity-mythos": "What Am I Reaching For?",
