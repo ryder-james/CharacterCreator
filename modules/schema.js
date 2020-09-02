@@ -47,6 +47,7 @@ let userSchema = new mongoose.Schema({
 	email: String,
 	username: String,
 	password: String,
+	isAdmin: Boolean,
 	characters: [characterSchema]
 });
 
