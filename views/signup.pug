@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  form(id="form" method="post" action="/signup")
+    p E-Mail:
+      input(id="email" name="email" type="email" value=email)
+    p Username:
+      input(id="username" name="username" type="username" value=username)
+    p Password:
+      input(id="password" name="password" type="password")
+    p Verify Password:
+      input(id="verify-password" name="verify-password" type="password")
+    p
+      input(type="submit" value="Sign Up")
+  div(id="error")
+    p=errorMessage
