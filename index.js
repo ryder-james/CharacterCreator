@@ -36,9 +36,10 @@ app.use(expressSession({
 }));
 
 app.get(`/`, routes.index);
-app.get(`/signup`, routes.signup)
-app.get(`/character`, routes.character);
+app.get(`/signup`, routes.signup);
+app.get(`/character`, checkAuth, routes.character);
 
-app.post(`/signup`, routes.signupUser)
+app.post(`/signin`, urlencodedParser, routes.signin);
+app.post(`/signup`, urlencodedParser, routes.signupUser);
 
 app.listen(3000);

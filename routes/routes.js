@@ -25,6 +25,28 @@ exports.index = (req, res) => {
 	});
 };
 
+exports.signin = (req, res) => {
+	schema.User.find({ username: req.body.username }, (err, users) => {
+		if (err) {
+			return console.err(err);
+		}
+
+		if(users[0] && hash.compareToHash(req.body.password, users[0].password)) {
+			req.session.user = {
+				isAuthenticated: true,
+				isAdmin: users[0].isAdmin,
+				username: users[0].username,
+				id: users[0].id
+			}
+
+			res.redirect(`/character`);
+		} else {
+			res.redirect(`/`);
+		}
+	});
+};
+
+
 exports.signup = (req, res) => {
 	res.render(`signup`, {
 		title: "Sign Up"
@@ -46,6 +68,7 @@ exports.signupUser = (req, res) => {
 			email: req.body.email,
 			username: req.body.username,
 			password: hash.createHash(req.body.password),
+			isAdmin: false,
 			characters: []
 		});
 
@@ -54,13 +77,14 @@ exports.signupUser = (req, res) => {
 				return console.error(err);
 			}
 
-			req.sesion.user = {
+			req.session.user = {
 				isAuthenticated: true,
+				isAdmin: false,
 				username: newUser.username,
 				id: newUser.id
 			}
 
-			res.redirect(`/`);
+			res.redirect(`/character`);
 		});
 	});
 };
