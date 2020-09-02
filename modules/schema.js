@@ -1,21 +1,23 @@
-let questionSchema = mongoose.SchemaType({
+const mongoose = require(`mongoose`);
+
+let questionSchema = new mongoose.Schema({
 	index: String,
 	text: String
 })
 
-let tagSchema = mongoose.SchemaType({
+let tagSchema = new mongoose.Schema({
 	question: questionSchema,
 	answer: String,
 	burned: Boolean
 });
 
-let crewSchema = mongoose.SchemaType({
+let crewSchema = new mongoose.Schema({
 	name: String,
 	help: Number,
 	hurt: Number
 });
 
-let themeSchema = mongoose.SchemaType({
+let themeSchema = new mongoose.Schema({
 	title: String,
 	type: String,
 	subtype: String,
@@ -27,7 +29,7 @@ let themeSchema = mongoose.SchemaType({
 	improvements: [String]
 });
 
-let characterSchema = mongoose.SchemaType({
+let characterSchema = new mongoose.Schema({
 	name: String,
 	player: String,
 	mythos: String,
@@ -41,9 +43,11 @@ let characterSchema = mongoose.SchemaType({
 	themes: [themeSchema]
 });
 
-let userSchema = mongoose.SchemaType({
+let userSchema = new mongoose.Schema({
 	email: String,
 	username: String,
 	password: String,
 	characters: [characterSchema]
 });
+
+exports.User = mongoose.model(`User_Collection`, userSchema);
