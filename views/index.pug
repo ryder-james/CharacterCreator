@@ -2,3 +2,10 @@ extends layout
 
 block content
   h3=title
+  form(id="sign-in" method="post" action="/signin")
+    p Username:
+      input(id="username" name="username" type="text")
+    p Password:
+      input(id="password" name="password" type="password")
+    p
+      input(type="submit" value="Login")
