@@ -36,5 +36,6 @@ app.use(expressSession({
 }));
 
 app.get(`/`, routes.index);
+app.get(`/character`, routes.character);
 
 app.listen(3000);

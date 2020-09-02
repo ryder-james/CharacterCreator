@@ -1,0 +1,39 @@
+include tag-partial
+
+mixin theme(themeInfo)
+  div(class="theme-card mythos-card")
+    div(class="theme-card-header")
+      p
+        span(class="theme-type") Subversion
+        span(class="theme-list")  - Mythos
+      i
+    div(class="theme-card-title")
+      p How the Mighty Fall
+    div(class="theme-card-tracks")
+      div(class="attention-track")
+        i
+        i
+        i
+        p Attention
+      div(class="fade-track")
+        i
+        i
+        i
+        p Fade
+    div(class="theme-card-mystery")
+      p(class="theme-title") Mystery
+      p How much power can I obtain?
+    div(class="theme-card-power-tags")
+      p(class="theme-title") Power Tags
+      +tag(null)
+      +tag(null)
+      +tag(null)
+      +tag(null)
+      +tag(null)
+      +tag(null)
+      +tag(null)
+    div(class="theme-card-weakness-tags")
+      p(class="theme-title") Weakness Tags
+      +tag(null)
+      +tag(null)
+      +tag(null)

@@ -19,3 +19,8 @@ exports.index = (req, res) => {
 		title: "Home"
 	});
 };
+
+exports.character = (req, res) => {
+	res.render(`character`);
+};
+
