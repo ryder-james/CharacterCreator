@@ -1,0 +1,10 @@
+extends layout
+
+include theme-partial
+
+block content
+  div(id="char-shelf")
+    div(id="char-header")
+    div(id="theme-shelf")
+      each theme in character.themes
+        +theme(theme)

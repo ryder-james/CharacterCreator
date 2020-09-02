@@ -1,5 +1,9 @@
 const mongoose = require(`mongoose`);
+
+const schema = require(`../modules/schema.js`)
+
 const secret = require(`../secret`);
+const character = require(`../character`)
 
 mongoose.Promise = global.Promise;
 
@@ -14,8 +18,17 @@ mdb.once(`open`, callback => {
 	
 });
 
+let User = mongoose.model(`User_Collection`, userSchema);
+
 exports.index = (req, res) => {
 	res.render(`index`, {
 		title: "Home"
 	});
 };
+
+exports.character = (req, res) => {
+	res.render(`character`, {
+		character
+	});
+};
+
