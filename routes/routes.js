@@ -1,4 +1,7 @@
 const mongoose = require(`mongoose`);
+
+const schema = require(`../modules/schema.js`)
+
 const secret = require(`../secret`);
 const character = require(`../character`)
 
@@ -14,6 +17,8 @@ mdb.on(`error`, console.error.bind(console, `connection error`));
 mdb.once(`open`, callback => {
 	
 });
+
+let User = mongoose.model(`User_Collection`, userSchema);
 
 exports.index = (req, res) => {
 	res.render(`index`, {
