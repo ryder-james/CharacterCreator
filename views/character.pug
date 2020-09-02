@@ -6,7 +6,5 @@ block content
   div(id="char-shelf")
     div(id="char-header")
     div(id="theme-shelf")
-      +theme(null)
-      +theme(null)
-      +theme(null)
-      +theme(null)
+      each theme in character.themes
+        +theme(theme)

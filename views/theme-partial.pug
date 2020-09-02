@@ -1,14 +1,12 @@
 include tag-partial
 
-mixin theme(themeInfo)
+mixin theme(theme)
   div(class="theme-card mythos-card")
     div(class="theme-card-header")
-      p
-        span(class="theme-type") Subversion
-        span(class="theme-list")  - Mythos
+      p=theme.type
       i
     div(class="theme-card-title")
-      p How the Mighty Fall
+      p=theme.title
     div(class="theme-card-tracks")
       div(class="attention-track")
         i
@@ -22,18 +20,12 @@ mixin theme(themeInfo)
         p Fade
     div(class="theme-card-mystery")
       p(class="theme-title") Mystery
-      p How much power can I obtain?
+      p #{theme["identity-mystery"]}
     div(class="theme-card-power-tags")
       p(class="theme-title") Power Tags
-      +tag(null)
-      +tag(null)
-      +tag(null)
-      +tag(null)
-      +tag(null)
-      +tag(null)
-      +tag(null)
+      each tag in theme["power-tags"]
+        +tag(tag)
     div(class="theme-card-weakness-tags")
       p(class="theme-title") Weakness Tags
-      +tag(null)
-      +tag(null)
-      +tag(null)
+      each tag in theme["weakness-tags"]
+        +tag(tag)

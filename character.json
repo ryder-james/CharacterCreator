@@ -1,0 +1,264 @@
+{
+	"name": "Theodora Ravenwood",
+	"player": "Ehlana",
+	"mythos": "Indiana Jones",
+	"logos": "University Professor",
+	"crew": [
+		{
+			"name": "Mark",
+			"help": 1,
+			"hurt": 0
+		},
+		{
+			"name": "Giorgia",
+			"help": 1,
+			"hurt": 0
+		}
+	],
+	"story-tags": [],
+	"build-up": 0,
+	"moments": [],
+	"nemeses": [],
+	"crew-theme": {
+		"title": "The Crime Club",
+		"type": "Crew Theme - Logos",
+		"attention": 0,
+		"fade-crack": 0,
+		"identity-mythos": "The Oracle Guides Us to the Truth",
+		"power-tags": [
+			{
+				"question": {
+					"index": "D",
+					"text": "What is whatever"
+				},
+				"answer": "Prof. Jon Hall",
+				"burned": false
+			},
+			{
+				"question": {
+					"index": "G",
+					"text": "What is whatever"
+				},
+				"answer": "Dark Prophecies",
+				"burned": false
+			},
+			{
+				"question": {
+					"index": "H",
+					"text": "What is whatever"
+				},
+				"answer": "The School Trusts Us",
+				"burned": false
+			}
+		],
+		"weakness-tags": [
+			{
+				"question": {
+					"index": "A",
+					"text": "What is whatever"
+				},
+				"answer": "In Over Our Heads",
+				"invoked": false
+			}
+		],
+		"improvements": []
+	},
+	"themes": [
+		{
+			"title": "Handy Bullwhip",
+			"type": "Relic - Mythos",
+			"attention": 0,
+			"fade-crack": 0,
+			"identity-mythos": "What Am I Reaching For?",
+			"power-tags": [
+				{
+					"question": {
+						"index": "A",
+						"text": "What is whatever"
+					},
+					"answer": "Bullwhip",
+					"burned": false
+				},
+				{
+					"question": {
+						"index": "D",
+						"text": "What is whatever"
+					},
+					"answer": "Only Appears When I Need It",
+					"burned": false
+				},
+				{
+					"question": {
+						"index": "B",
+						"text": "What is whatever"
+					},
+					"answer": "Swing Across Gaps",
+					"burned": false
+				},
+				{
+					"question": {
+						"index": "E",
+						"text": "What is whatever"
+					},
+					"answer": "Bring Something to Me",
+					"burned": false
+				}
+			],
+			"weakness-tags": [
+				{
+					"question": {
+						"index": "A",
+						"text": "What is whatever"
+					},
+					"answer": "Won't Appear When I Need It the Most",
+					"invoked": false
+				},
+				{
+					"question": {
+						"index": "B",
+						"text": "What is whatever"
+					},
+					"answer": "Not Long Enough",
+					"invoked": false
+				}
+			],
+			"improvements": [],
+			"flipside": ""
+		},
+		{
+			"title": "The Luck of the Draw",
+			"type": "Bastion - Mythos",
+			"attention": 0,
+			"fade-crack": 0,
+			"identity-mythos": "What Could Possibly Go Wrong?",
+			"power-tags": [
+				{
+					"question": {
+						"index": "A",
+						"text": "What is whatever"
+					},
+					"answer": "Incredible Luck",
+					"burned": false
+				},
+				{
+					"question": {
+						"index": "F",
+						"text": "What is whatever"
+					},
+					"answer": "The Right Place at the Right Time",
+					"burned": false
+				},
+				{
+					"question": {
+						"index": "J",
+						"text": "What is whatever"
+					},
+					"answer": "I Know Just Where to Hide",
+					"burned": false
+				}
+			],
+			"weakness-tags": [
+				{
+					"question": {
+						"index": "D",
+						"text": "What is whatever"
+					},
+					"answer": "Overconfident",
+					"invoked": false
+				}
+			],
+			"improvements": [],
+			"flipside": ""
+		},
+		{
+			"title": "Stanforth University",
+			"type": "Defining Relationship - Logos",
+			"attention": 0,
+			"fade-crack": 0,
+			"identity-mythos": "The University Is My One True Home",
+			"power-tags": [
+				{
+					"question": {
+						"index": "A",
+						"text": "What is whatever"
+					},
+					"answer": "Tenured Professor",
+					"burned": false
+				},
+				{
+					"question": {
+						"index": "B",
+						"text": "What is whatever"
+					},
+					"answer": "Many Bright Minds to Lend a Hand",
+					"burned": false
+				},
+				{
+					"question": {
+						"index": "F",
+						"text": "What is whatever"
+					},
+					"answer": "Lab Equipment",
+					"burned": false
+				}
+			],
+			"weakness-tags": [
+				{
+					"question": {
+						"index": "D",
+						"text": "What is whatever"
+					},
+					"answer": "Won't Support My Illegal Activities",
+					"invoked": false
+				}
+			],
+			"improvements": [],
+			"flipside": ""
+		},
+		{
+			"title": "Professor of Physics",
+			"type": "Mission - Logos",
+			"attention": 0,
+			"fade-crack": 0,
+			"identity-mythos": "What Am I Reaching For?",
+			"power-tags": [
+				{
+					"question": {
+						"index": "A",
+						"text": "What is whatever"
+					},
+					"answer": "Superb Physicist",
+					"burned": false
+				},
+				{
+					"question": {
+						"index": "H",
+						"text": "What is whatever"
+					},
+					"answer": "Recognized Expert",
+					"burned": false
+				},
+				{
+					"question": {
+						"index": "F",
+						"text": "What is whatever"
+					},
+					"answer": "Beloved Teacher",
+					"burned": false
+				}
+			],
+			"weakness-tags": [
+				{
+					"question": {
+						"index": "A",
+						"text": "What is whatever"
+					},
+					"answer": "Busy Schedule",
+					"invoked": false
+				}
+			],
+			"improvements": [],
+			"flipside": ""
+		}
+	]
+}

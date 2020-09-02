@@ -1,5 +1,6 @@
 const mongoose = require(`mongoose`);
 const secret = require(`../secret`);
+const character = require(`../character`)
 
 mongoose.Promise = global.Promise;
 
@@ -21,6 +22,8 @@ exports.index = (req, res) => {
 };
 
 exports.character = (req, res) => {
-	res.render(`character`);
+	res.render(`character`, {
+		character
+	});
 };
 

@@ -1,5 +1,5 @@
-mixin tag(tagInfo)
+mixin tag(tag)
   div(class="theme-card-tag")
-    p A
-    p Immense Strength
+    p=tag.question.index
+    p=tag.answer
     i
