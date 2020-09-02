@@ -26,7 +26,7 @@ exports.index = (req, res) => {
 };
 
 exports.signin = (req, res) => {
-	schema.User.find({ username: req.body.username }, (err, users) => {
+	schema.User.find({ username: req.body.username.toLowerCase() }, (err, users) => {
 		if (err) {
 			return console.err(err);
 		}
@@ -35,7 +35,7 @@ exports.signin = (req, res) => {
 			req.session.user = {
 				isAuthenticated: true,
 				isAdmin: users[0].isAdmin,
-				username: users[0].username,
+				name: users[0].displayName,
 				id: users[0].id
 			}
 
@@ -54,7 +54,7 @@ exports.signup = (req, res) => {
 };
 
 exports.signupUser = (req, res) => {
-	schema.User.find({ $or:[{email: req.body.email}, {username: req.body.username}] }, (err, users) => {
+	schema.User.find({ $or:[{email: req.body.email}, {username: req.body.username.toLowerCase()}] }, (err, users) => {
 		if (err) {
 			return console.error(err);
 		}
@@ -66,7 +66,8 @@ exports.signupUser = (req, res) => {
 
 		let newUser = new schema.User({
 			email: req.body.email,
-			username: req.body.username,
+			username: req.body.username.toLowerCase(),
+			displayName: req.body.displayName,
 			password: hash.createHash(req.body.password),
 			isAdmin: false,
 			characters: []
@@ -80,7 +81,7 @@ exports.signupUser = (req, res) => {
 			req.session.user = {
 				isAuthenticated: true,
 				isAdmin: false,
-				username: newUser.username,
+				name: newUser.displayName,
 				id: newUser.id
 			}
 

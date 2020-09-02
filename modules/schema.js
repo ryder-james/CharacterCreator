@@ -46,6 +46,7 @@ let characterSchema = new mongoose.Schema({
 let userSchema = new mongoose.Schema({
 	email: String,
 	username: String,
+	displayName: String,
 	password: String,
 	isAdmin: Boolean,
 	characters: [characterSchema]
