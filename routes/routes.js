@@ -18,8 +18,6 @@ mdb.once(`open`, callback => {
 	
 });
 
-let User = mongoose.model(`User_Collection`, exports.userSchema);
-
 exports.index = (req, res) => {
 	res.render(`index`, {
 		title: "Home"
