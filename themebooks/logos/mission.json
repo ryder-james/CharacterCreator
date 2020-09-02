@@ -1,0 +1,200 @@
+{
+	"title": "",
+	"examples": [
+		"",
+		"",
+		"",
+		"",
+		""
+	],
+	"concept": {
+		"question": "",
+		"answers": [
+			"______",
+			"______",
+			"______"
+		]
+	},
+	"power-tag-questions": [
+		{
+			"index": "A",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "B",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "C",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "D",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "E",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "F",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "G",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "H",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "I",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "J",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		}
+	],
+	"weakness-tag-questions": [
+		{
+			"index": "A",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "B",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "C",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"index": "D",
+			"question": "",
+			"example-answers": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		}
+	],
+	"identity-suggestions": [
+		"",
+		"",
+		""
+	],
+	"crew-relationships": [
+		"",
+		"",
+		""
+	]
+}
