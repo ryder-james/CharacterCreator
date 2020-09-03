@@ -1,1 +1,1 @@
-nodemon
+web: nodemon
