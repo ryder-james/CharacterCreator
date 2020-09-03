@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h3 Characters: #{characterCount}/#{maxCharacters}
+  if hasCharacters
+    p Characters will display here
+  else
+    p No characters... #[a(href='/create') Create one?]
