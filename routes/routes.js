@@ -31,7 +31,10 @@ exports.signin = (req, res) => {
 			return console.err(err);
 		}
 
+		
 		if(users[0] && hash.compareToHash(req.body.password, users[0].password)) {
+			console.log(users[0].id);
+
 			req.session.user = {
 				isAuthenticated: true,
 				isAdmin: users[0].isAdmin,
@@ -39,7 +42,7 @@ exports.signin = (req, res) => {
 				id: users[0].id
 			}
 
-			res.redirect(`/character`);
+			res.redirect(`/characters`);
 		} else {
 			res.redirect(`/`);
 		}
@@ -85,14 +88,50 @@ exports.signupUser = (req, res) => {
 				id: newUser.id
 			}
 
-			res.redirect(`/character`);
+			res.redirect(`/characters`);
 		});
 	});
 };
 
+exports.create = (req, res) => {
+	res.render(`create`);
+};
+
+exports.createCharacter = (req, res) => {
+	res.render(`createCharacter`);
+};
+
+
+exports.characters = (req, res) => {
+	console.log(req.session.id);
+	schema.User.findById(req.session.user.id, (err, user) => {
+		if (err) {
+			return console.error(err);
+		}
+
+		console.log(user.characters);
+
+		res.render(`characters`, {
+			characterCount: user.characters.length,
+			maxCharacters: 3,
+			hasCharacters: user.characters.length > 0,
+			characters: user.characters
+		});
+	});
+};
+
+
 exports.character = (req, res) => {
-	res.render(`character`, {
-		character
+	schema.User.findById(req.session.user.id, (err, user) => {
+		if (err) {
+			return console.error(err);
+		}
+
+		if (user.characters.length > req.params.index) {
+			res.render(`character`, {
+				character: user.characters[req.params.index]
+			});
+		}
 	});
 };
 
