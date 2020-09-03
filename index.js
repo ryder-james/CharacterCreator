@@ -3,7 +3,6 @@ const path = require(`path`);
 const bodyParser = require(`body-parser`)
 const expressSession = require(`express-session`);
 const routes = require(`./routes/routes`);
-const secret = require(`./secret`);
 
 const app = express();
 
@@ -30,7 +29,7 @@ app.set(`views`, path.join(__dirname, `/views`));
 app.use(express.static(path.join(__dirname, `/public`)));
 
 app.use(expressSession({
-	secret: secret["session-pass"],
+	secret: process.env.SESSION_PASS,
 	saveUninitialized: true,
 	resave: true
 }));
