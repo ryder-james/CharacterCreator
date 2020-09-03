@@ -7,7 +7,13 @@ const character = require(`../character`);
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(`mongodb+srv://rjames:${process.env.MONGO_PASS}@comcharacters.ep4vw.mongodb.net/CoMCharacters?retryWrites=true&w=majority`, {
+let pass = process.env.MONGO_PASS;
+if (!pass) {
+	let secret = require(`../secret`);
+	pass = secret["mongo-pass"];
+}
+
+mongoose.connect(`mongodb+srv://rjames:${pass}@comcharacters.ep4vw.mongodb.net/CoMCharacters?retryWrites=true&w=majority`, {
 	useUnifiedTopology: true,
 	useNewUrlParser: true
 });
