@@ -3,7 +3,6 @@ const path = require(`path`);
 const bodyParser = require(`body-parser`)
 const expressSession = require(`express-session`);
 const routes = require(`./routes/routes`);
-const secret = require(`./secret`);
 
 const app = express();
 
@@ -29,8 +28,14 @@ app.set(`view engine`, `pug`);
 app.set(`views`, path.join(__dirname, `/views`));
 app.use(express.static(path.join(__dirname, `/public`)));
 
+let pass = process.env.SESSION_PASS;
+if (!pass) {
+	let secret = require(`./secret`);
+	pass = secret["session-pass"];
+}
+
 app.use(expressSession({
-	secret: secret["session-pass"],
+	secret: pass,
 	saveUninitialized: true,
 	resave: true
 }));
@@ -44,4 +49,8 @@ app.get(`/character/:index`, checkAuth, routes.character);
 app.post(`/signin`, urlencodedParser, routes.signin);
 app.post(`/signup`, urlencodedParser, routes.signupUser);
 
-app.listen(3000);
+let port = process.env.PORT;
+if (!port || port == "") {
+	port = 8000;
+}
+app.listen(port);

@@ -3,12 +3,17 @@ const mongoose = require(`mongoose`);
 const hash = require(`../modules/hash.js`);
 const schema = require(`../modules/schema.js`);
 
-const secret = require(`../secret`);
 const character = require(`../character`);
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(`mongodb+srv://rjames:${secret['mongo-pass']}@comcharacters.ep4vw.mongodb.net/CoMCharacters?retryWrites=true&w=majority`, {
+let pass = process.env.MONGO_PASS;
+if (!pass) {
+	let secret = require(`../secret`);
+	pass = secret["mongo-pass"];
+}
+
+mongoose.connect(`mongodb+srv://rjames:${pass}@comcharacters.ep4vw.mongodb.net/CoMCharacters?retryWrites=true&w=majority`, {
 	useUnifiedTopology: true,
 	useNewUrlParser: true
 });
