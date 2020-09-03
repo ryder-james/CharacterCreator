@@ -28,6 +28,9 @@ app.set(`view engine`, `pug`);
 app.set(`views`, path.join(__dirname, `/views`));
 app.use(express.static(path.join(__dirname, `/public`)));
 
+console.log(process.env.SESSION_PASS);
+console.log(process.env.MONGO_PASS);
+
 app.use(expressSession({
 	secret: process.env.SESSION_PASS,
 	saveUninitialized: true,
