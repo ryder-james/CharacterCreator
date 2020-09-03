@@ -42,4 +42,8 @@ app.get(`/character`, checkAuth, routes.character);
 app.post(`/signin`, urlencodedParser, routes.signin);
 app.post(`/signup`, urlencodedParser, routes.signupUser);
 
-app.listen(3000);
+let port = process.env.PORT;
+if (!port || port == "") {
+	port = 8000;
+}
+app.listen(port);
