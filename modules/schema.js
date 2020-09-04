@@ -1,5 +1,10 @@
 const mongoose = require(`mongoose`);
 
+let conceptSchema = new mongoose.Schema({
+	question: String,
+	answers: [String]
+});
+
 let questionSchema = new mongoose.Schema({
 	index: String,
 	text: String
@@ -8,7 +13,19 @@ let questionSchema = new mongoose.Schema({
 let tagSchema = new mongoose.Schema({
 	question: questionSchema,
 	answer: String,
+	exampleAnswers: [String],
 	burned: Boolean
+});
+
+let themebookSchema = new mongoose.Schema({
+	title: String,
+	type: String,
+	examples: [String],
+	concept: conceptSchema,
+	powerTagQuestions: [tagSchema],
+	weaknessTagQuestions: [tagSchema],
+	mysteryIdentitySuggestions: [String],
+	crewRelationships: [String]
 });
 
 let crewSchema = new mongoose.Schema({
@@ -53,3 +70,4 @@ let userSchema = new mongoose.Schema({
 });
 
 exports.User = mongoose.model(`User_Collection`, userSchema);
+exports.Themebook = mongoose.model(`Themebook_Collection`, themebookSchema);
