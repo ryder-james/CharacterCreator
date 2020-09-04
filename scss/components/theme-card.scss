@@ -1,0 +1,21 @@
+
+.theme-card {
+	height: 800px;
+	min-width: 300px;
+	padding: 5px 15px 40px 15px;
+	border: 8px solid $gray-border;
+
+}
+
+.theme-card-tracks {
+	display: flex;
+}
+
+.theme-card-tag {
+	display: flex;
+}
+
+#theme-shelf {
+	display: flex;
+	flex-direction: row;
+}
