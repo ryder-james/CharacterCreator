@@ -30,6 +30,11 @@ exports.index = (req, res) => {
 	});
 };
 
+exports.api = (req, res) => {
+	res.render(`api`);
+};
+
+
 exports.signin = (req, res) => {
 	schema.User.find({ username: req.body.username.toLowerCase() }, (err, users) => {
 		if (err) {
@@ -38,8 +43,6 @@ exports.signin = (req, res) => {
 
 		
 		if(users[0] && hash.compareToHash(req.body.password, users[0].password)) {
-			console.log(users[0].id);
-
 			req.session.user = {
 				isAuthenticated: true,
 				isAdmin: users[0].isAdmin,
@@ -47,13 +50,12 @@ exports.signin = (req, res) => {
 				id: users[0].id
 			}
 
-			res.redirect(`/characters`);
+			res.redirect(`/addThemebook`);
 		} else {
 			res.redirect(`/`);
 		}
 	});
 };
-
 
 exports.signup = (req, res) => {
 	res.render(`signup`, {
@@ -108,13 +110,10 @@ exports.createCharacter = (req, res) => {
 
 
 exports.characters = (req, res) => {
-	console.log(req.session.id);
 	schema.User.findById(req.session.user.id, (err, user) => {
 		if (err) {
 			return console.error(err);
 		}
-
-		console.log(user.characters);
 
 		res.render(`characters`, {
 			characterCount: user.characters.length,
@@ -140,3 +139,52 @@ exports.character = (req, res) => {
 	});
 };
 
+exports.addThemebook = (req, res) => {
+	res.render(`add-themebook`);
+};
+
+exports.addThemebookPost = (req, res) => {
+	let newThemebook = new schema.Themebook({
+		title: req.body.title,
+		type: req.body.type,
+		examples: [],
+		concept: {
+			question: req.body.conceptQuestion,
+			answers: req.body.conceptExamples.split(";")
+		},
+		powerTagQuestions: [],
+		weaknessTagsQuestions: [],
+		mysteryIdentitySuggestions: req.body.mysterySuggestions.split(";"),
+		crewRelationships: req.body.crewRelationships.split(";")
+	});
+
+	for (let i = 0; i < req.body.powerTagCount; i++) {
+		let powerTag = {
+			question: {
+				index: req.body[`powerTagIndex${i}`],
+				text: req.body[`powerTagQuestion${i}`]
+			},
+			exampleAnswers: req.body[`powerTagExamples${i}`].split(", ")
+		};
+		newThemebook.powerTagQuestions.push(powerTag);
+	}
+
+	for (let i = 0; i < req.body.weaknessTagCount; i++) {
+		let weaknessTag = {
+			question: {
+				index: req.body[`weaknessTagIndex${i}`],
+				text: req.body[`weaknessTagQuestion${i}`]
+			},
+			exampleAnswers: req.body[`weaknessTagExamples${i}`].split(", ")
+		};
+		newThemebook.weaknessTagQuestions.push(weaknessTag);
+	}
+
+	newThemebook.save(err => {
+		if (err) {
+			return console.error(err);
+		}
+
+		res.redirect(`/addThemebook`);
+	});
+};

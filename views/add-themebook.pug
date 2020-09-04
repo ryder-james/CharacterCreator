@@ -1,0 +1,65 @@
+extends layout
+
+block content
+  form(id="themebook-form" method="post" action="/addThemebook")
+    section(id="themebook-form__header" class="horizontal-flex")
+      input(name="title" type="text" placeholder="Title")
+      p  - 
+      select(name="type" onchange="updateType(this)")
+        option(value="mythos") Mythos
+        option(value="logos") Logos
+    div(id="themebook-form__panes")
+      div(id="themebook-form__panes__left-pane")
+        section(id="themebook-form__panes__left-pane__examples" class="stack")
+          p Themebook Examples:
+          input(name="themebookExamples0" type="text")
+          input(class="add-button" type="button" onclick="newField(this)" value="+")
+        
+        section(id="themebook-form__panes__left-pane__concept" class="stack")
+          p Concept Question:
+          input(name="conceptQuestion" type="text")
+          p Examples:
+          input(name="conceptExamples0" type="text")
+          input(class="add-button" type="button" onclick="newField(this)" value="+")
+
+      div(id="themebook-form__panes__middle-pane")
+        section(class="stack")
+          p Power Tags:
+          button(type="button" class="collapsible" value="v")
+          div(id="power-tag")
+            input(name="powerTagIndex0" type="text" value="A")
+            input(name="powerTagQuestion0" type="text" placeholder="Question")
+            hr
+            input(name="powerTagExamplesA0" type="text")
+          input(class="add-button" type="button" onclick="newField(this)" value="+")
+
+        section(class="stack")
+          p Weakness Tags:
+          button(type="button" class="collapsible" value="v")
+          div(id="weakness-tag")
+            input(name="weaknessTagIndex0" type="text" value="A")
+            input(name="weaknessTagQuestion0" type="text" placeholder="Question")
+            hr
+            input(name="weaknessTagExamplesA0" type="text")
+          input(class="add-button" type="button" onclick="newField(this)" value="+")
+
+      div(id="themebook-form__panes__right-pane")
+        section(class="stack")
+          p(id="mystery-title") Mystery Suggestions:
+            textarea(name="mysterySuggestions" type="text" form="themebook-form")
+            input(class="add-button" type="button" onclick="newField(this)" value="+")
+
+        section(class="stack")
+          p Crew Relationships:
+            textarea(name="crewRelationships" type="text" form="themebook-form")
+            input(class="add-button" type="button" onclick="newField(this)" value="+")
+
+    input(name="powerTagCount" type="hidden" value=1)
+    input(name="weaknessTagCount" type="hidden" value=1)
+    input(name="mysteryCount" type="hidden" value=1)
+    input(name="crewCount" type="hidden" value=1)
+
+    p
+      input(type="submit" value="Add Themebook")
+
+  script(src="themebook-form.js")

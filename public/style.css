@@ -1,25 +1,62 @@
 body {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.horizontal-flex {
+  display: flex;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
 }
 
 .theme-card {
-	height: 800px;
-	min-width: 300px;
-	padding: 5px 15px 40px 15px;
-	border: 8px solid #ddddc1;
-
+  height: 800px;
+  min-width: 300px;
+  padding: 5px 15px 40px 15px;
+  border: 8px solid #ddddc1;
 }
 
 .theme-card-tracks {
-	display: flex;
+  display: flex;
 }
 
 .theme-card-tag {
-	display: flex;
+  display: flex;
 }
 
 #theme-shelf {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
+
+#themebook-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  border: 2px solid black;
+}
+#themebook-form__header {
+  padding: 10px;
+  border-bottom: 2px solid black;
+}
+#themebook-form__panes {
+  display: flex;
+  border-bottom: 2px solid black;
+}
+#themebook-form__panes__left-pane {
+  border-right: 2px solid black;
+}
+#themebook-form__panes__left-pane__examples {
+  border-bottom: 2px solid black;
+}
+#themebook-form__panes__middle-pane {
+  display: flex;
+}
+#themebook-form__panes__right-pane {
+  border-left: 2px solid black;
+}
+
+/*# sourceMappingURL=style.css.map */

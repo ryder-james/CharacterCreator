@@ -24,6 +24,14 @@ const checkAuth = (req, res, next) => {
 	}
 }
 
+const checkAdmin = (req, res, next) => {
+	if (req.session.user && req.session.user.isAuthenticated && req.session.user.isAdmin) {
+		next();
+	} else {
+		res.redirect(`/characters`);
+	}
+}
+
 app.set(`view engine`, `pug`);
 app.set(`views`, path.join(__dirname, `/views`));
 app.use(express.static(path.join(__dirname, `/public`)));
@@ -40,14 +48,25 @@ app.use(expressSession({
 	resave: true
 }));
 
+// PUBLIC PAGES //
 app.get(`/`, routes.index);
 app.get(`/create`, routes.create);
 app.get(`/signup`, routes.signup);
+
+// AUTH PAGES //
 app.get(`/characters`, checkAuth, routes.characters)
 app.get(`/character/:index`, checkAuth, routes.character);
 
-app.post(`/signin`, urlencodedParser, routes.signin);
+// ADMIN PAGES //
+app.get(`/api`, checkAdmin, routes.api);
+app.get(`/addThemebook`, checkAdmin, routes.addThemebook);
+
+// PUBLIC POST ROUTES //
 app.post(`/signup`, urlencodedParser, routes.signupUser);
+app.post(`/signin`, urlencodedParser, routes.signin);
+
+// ADMIN POST ROUTES //
+app.post(`/addThemebook`, checkAdmin, urlencodedParser, routes.addThemebookPost);
 
 let port = process.env.PORT;
 if (!port || port == "") {
